@@ -49,6 +49,7 @@ El temario incluye:
 💻 "Landing Page interactiva con CSS Moderno"
 
 Se aplicarán técnicas como: 
+
 ✅ Container Queries  
 ✅ Variables avanzadas  
 ✅ Funciones de color  
@@ -58,7 +59,9 @@ Se aplicarán técnicas como:
 ## ¿Por qué tomar este curso?
 
 ✔️ Actualiza tus conocimientos con las novedades más recientes de CSS. 
+
 ✔️ Aprende técnicas con soporte en los principales navegadores. 
+
 ✔️ Mejora la eficiencia, rendimiento y accesibilidad de tus proyectos.
 
 ----------
