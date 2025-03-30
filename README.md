@@ -27,7 +27,7 @@ Para seguir este curso, asegúrate de tener instalados los siguientes programas 
 
 ## Contenido del curso
 
-El temario incluye (módulos en construcción):
+El temario incluye:
 
 -   Selectores y funciones avanzadas
     
@@ -57,7 +57,9 @@ Se aplicarán técnicas como:
 
 ## ¿Por qué tomar este curso?
 
-✔️ Actualiza tus conocimientos con las novedades más recientes de CSS. ✔️ Aprende técnicas con soporte en los principales navegadores. ✔️ Mejora la eficiencia, rendimiento y accesibilidad de tus proyectos.
+✔️ Actualiza tus conocimientos con las novedades más recientes de CSS. 
+✔️ Aprende técnicas con soporte en los principales navegadores. 
+✔️ Mejora la eficiencia, rendimiento y accesibilidad de tus proyectos.
 
 ----------
 
