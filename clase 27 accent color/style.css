@@ -1,0 +1,8 @@
+input[type="checkbox"],
+input[type="radio"] {
+    accent-color: red;
+}
+
+label:has(input:checked) {
+    color: red;
+}
