@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Avanzado</title>
+    <link rel="stylesheet" href="estilos-criticos.css">
+    <link rel="stylesheet" href="estilos-no-criticos.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="estilos-no-criticos.css"></noscript>
+</head>
+<body>
+
+    <h1>Optimización con CSS Diferido</h1>
+    <p>Los estilos críticos cargaron de inmediato, los demás se aplican después.</p>
+
+    <div class="extra">
+        Esta caja tendrá estilos cuando se cargue el CSS no crítico.
+    </div>
+
+</body>
+</html>
