@@ -1,0 +1,15 @@
+.carrusel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    scroll-behavior: smooth;
+}
+
+.carrusel img {
+    width: 600px;
+    height: 400px;
+    object-fit: cover;
+    scroll-snap-align: center;
+    border-radius: 15px;
+}
