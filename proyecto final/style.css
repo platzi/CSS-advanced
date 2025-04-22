@@ -1,0 +1,395 @@
+      /* ===== VARIABLES CSS GLOBALES ===== */
+      :root {
+        /* Colores principales usando el nuevo formato OKLCH para mejor representación de colores */
+        --color-primario: oklch(49% 0.29 264);       /* Azul profundo */
+        --color-secundario: oklch(85% 0.14 156);     /* Verde suave */
+        --color-oscuro: oklch(25% 0.02 240);         /* Casi negro */
+        --color-claro: oklch(98% 0.005 240);         /* Casi blanco */
+        
+        /* Uso de clamp() para tamaños de fuente responsivos que se ajustan automáticamente 
+           basados en el viewport sin necesidad de media queries */
+        --tamano-fuente-peq: clamp(0.8rem, 0.7rem + 0.5vw, 1rem);
+        --tamano-fuente-base: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
+        --tamano-fuente-grande: clamp(1.5rem, 1.4rem + 0.5vw, 2rem);
+        --tamano-fuente-xl: clamp(2rem, 1.8rem + 1vw, 3rem);
+        
+        /* Espaciado */
+        --espaciado-xs: clamp(0.5rem, 0.4rem + 0.5vw, 0.75rem);
+        --espaciado-peq: clamp(0.75rem, 0.65rem + 0.5vw, 1rem);
+        --espaciado-med: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
+        --espaciado-grande: clamp(1.5rem, 1.4rem + 0.5vw, 2.5rem);
+        --espaciado-xl: clamp(2rem, 1.8rem + 1vw, 4rem);
+        
+        /* Bordes */
+        --radio-borde: 8px;
+    }
+
+    /* ===== RESET BÁSICO ===== */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--color-oscuro);
+        background-color: var(--color-claro);
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* ===== CONTENEDOR PRINCIPAL PARA @CONTAINER QUERIES ===== */
+    /* Definimos el contenedor principal como un "container" para poder usar @container queries */
+    .contenedor-principal {
+        container-type: inline-size;  /* Define este elemento como un contenedor para consultas */
+        container-name: principal;    /* Le da un nombre para referencias en @container */
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: var(--espaciado-med);
+    }
+
+    /* ===== CABECERA ===== */
+    .cabecera {
+        padding: var(--espaciado-grande) 0;
+        text-align: center;
+    }
+
+    .barra-navegacion {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--espaciado-peq) var(--espaciado-med);
+        margin-bottom: var(--espaciado-grande);
+        border-radius: var(--radio-borde);
+        /* Uso de color-mix() para mezclar colores directamente en CSS */
+        background-color: color-mix(in oklch, var(--color-primario) 15%, var(--color-claro));
+    }
+
+    .enlaces-nav {
+        display: flex;
+        gap: var(--espaciado-med);
+    }
+
+    .enlaces-nav a {
+        color: var(--color-oscuro);
+        text-decoration: none;
+        padding: var(--espaciado-xs);
+        border-radius: var(--radio-borde);
+        transition: all 0.3s ease;
+    }
+
+    /* Uso de :is() para reducir repetición de código en selectores */
+    :is(.enlaces-nav a:hover, .enlaces-nav a:focus) {
+        background-color: var(--color-primario);
+        color: var(--color-claro);
+    }
+
+    /* ===== SECCIÓN HERO ===== */
+    .hero {
+        position: relative;
+        padding: var(--espaciado-xl) 0;
+        text-align: center;
+        overflow: hidden;  /* Para controlar el desbordamiento de elementos animados */
+    }
+
+    .hero h1 {
+        font-size: var(--tamano-fuente-xl);
+        margin-bottom: var(--espaciado-med);
+        /* Definimos una variable de nivel de componente */
+        --color-destacado: var(--color-secundario);
+    }
+
+    /* Uso de :has() - "parent selector" para cambiar estilos basados en elementos hijos */
+    .hero:has(.boton-accion:hover) h1 {
+        --color-destacado: var(--color-primario);  /* Cambia el color cuando se hace hover en el botón */
+    }
+
+    .hero h1 span {
+        color: var(--color-destacado);  /* Usa la variable definida en el componente */
+        transition: color 0.3s ease;
+    }
+
+    .hero p {
+        font-size: var(--tamano-fuente-grande);
+        max-width: 800px;
+        margin: 0 auto var(--espaciado-grande);
+    }
+
+    .boton-accion {
+        display: inline-block;
+        padding: var(--espaciado-peq) var(--espaciado-grande);
+        background-color: var(--color-primario);
+        color: var(--color-claro);
+        text-decoration: none;
+        border-radius: var(--radio-borde);
+        font-size: var(--tamano-fuente-base);
+        font-weight: bold;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: none;
+    }
+
+    .boton-accion:hover {
+        /* Uso de calc() para calcular un tamaño ligeramente mayor */
+        transform: scale(calc(1 + 0.05));
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ===== SECCIÓN PROYECTOS ===== */
+    .proyectos {
+        padding: var(--espaciado-xl) 0;
+        /* Definimos timeline de scroll para animaciones basadas en scroll */
+        view-timeline-name: --scroll-proyectos;
+        view-timeline-axis: block;
+    }
+
+    .proyectos h2 {
+        font-size: var(--tamano-fuente-xl);
+        text-align: center;
+        margin-bottom: var(--espaciado-grande);
+        /* Animación basada en scroll usando view-timeline */
+        animation: aparecer linear;
+        animation-timeline: --scroll-proyectos;
+        animation-range: entry 10% cover 20%;
+    }
+
+    .cuadricula-proyectos {
+        display: grid;
+        gap: var(--espaciado-grande);
+        /* Usamos un grid adaptativo con minmax para evitar media queries */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .tarjeta-proyecto {
+        border-radius: var(--radio-borde);
+        overflow: hidden;
+        background-color: var(--color-claro);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        /* Para usar content-visibility y mejorar performance */
+        content-visibility: auto;
+        /* Estimamos altura del contenido para optimize la carga */
+        contain-intrinsic-size: 0 300px;
+        transition: transform 0.3s ease;
+    }
+
+    /* Efecto hover en las tarjetas de proyecto */
+    .tarjeta-proyecto:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .imagen-proyecto {
+        height: 200px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .imagen-proyecto img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        /* Aplicación de mix-blend-mode para efectos visuales interesantes */
+        mix-blend-mode: multiply;
+        filter: grayscale(50%);
+        transition: all 0.5s ease;
+    }
+
+    /* Volvemos la imagen a color con :hover usando la pseudo-clase */
+    .tarjeta-proyecto:hover .imagen-proyecto img {
+        filter: grayscale(0%);
+        mix-blend-mode: normal;
+    }
+
+    .contenido-proyecto {
+        padding: var(--espaciado-med);
+    }
+
+    .contenido-proyecto h3 {
+        font-size: var(--tamano-fuente-grande);
+        margin-bottom: var(--espaciado-xs);
+    }
+
+    .contenido-proyecto p {
+        font-size: var(--tamano-fuente-base);
+        margin-bottom: var(--espaciado-peq);
+    }
+
+    .etiquetas-proyecto {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--espaciado-xs);
+        margin-top: var(--espaciado-peq);
+    }
+
+    .etiqueta {
+        background-color: color-mix(in oklch, var(--color-secundario) 30%, var(--color-claro));
+        padding: calc(var(--espaciado-xs) / 2) var(--espaciado-xs);
+        border-radius: var(--radio-borde);
+        font-size: var(--tamano-fuente-peq);
+    }
+
+    /* ===== SECCIÓN HABILIDADES ===== */
+    .habilidades {
+        padding: var(--espaciado-xl) 0;
+        background-color: color-mix(in oklch, var(--color-primario) 10%, var(--color-claro));
+    }
+
+    .habilidades h2 {
+        font-size: var(--tamano-fuente-xl);
+        text-align: center;
+        margin-bottom: var(--espaciado-grande);
+    }
+
+    .contenedor-habilidades {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--espaciado-med);
+        justify-content: center;
+    }
+
+    .item-habilidad {
+        position: relative;
+        padding: var(--espaciado-med);
+        border-radius: var(--radio-borde);
+        background-color: var(--color-claro);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: calc(33% - var(--espaciado-med));
+        min-width: 200px;
+        text-align: center;
+        /* Para animation-timeline basada en scroll */
+        animation: deslizar 1s ease;
+        animation-timeline: view();
+        animation-range: entry 20% cover 50%;
+    }
+
+    /* ===== SECCIÓN CONTACTO ===== */
+    .contacto {
+        padding: var(--espaciado-xl) 0;
+        text-align: center;
+    }
+
+    .contacto h2 {
+        font-size: var(--tamano-fuente-xl);
+        margin-bottom: var(--espaciado-grande);
+    }
+
+    .formulario-contacto {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .grupo-formulario {
+        margin-bottom: var(--espaciado-med);
+        text-align: left;
+    }
+
+    .grupo-formulario label {
+        display: block;
+        margin-bottom: var(--espaciado-xs);
+        font-weight: bold;
+        font-size: var(--tamano-fuente-base);
+    }
+
+    .control-formulario {
+        width: 100%;
+        padding: var(--espaciado-peq);
+        border: 1px solid #ddd;
+        border-radius: var(--radio-borde);
+        font-size: var(--tamano-fuente-base);
+    }
+
+    /* Uso de :focus-within para efectos cuando el formulario tiene foco */
+    .grupo-formulario:focus-within label {
+        color: var(--color-primario);
+    }
+
+    .grupo-formulario:focus-within .control-formulario {
+        border-color: var(--color-primario);
+        box-shadow: 0 0 0 2px color-mix(in oklch, var(--color-primario) 30%, transparent);
+    }
+
+    /* ===== PIE DE PÁGINA ===== */
+    .pie-pagina {
+        padding: var(--espaciado-grande) 0;
+        background-color: var(--color-oscuro);
+        color: var(--color-claro);
+        text-align: center;
+    }
+
+    .enlaces-sociales {
+        display: flex;
+        justify-content: center;
+        gap: var(--espaciado-med);
+        margin-bottom: var(--espaciado-med);
+    }
+
+    .enlaces-sociales a {
+        color: var(--color-claro);
+        font-size: var(--tamano-fuente-grande);
+        text-decoration: none;
+        transition: transform 0.3s ease;
+    }
+
+    .enlaces-sociales a:hover {
+        transform: translateY(-3px);
+        color: var(--color-secundario);
+    }
+
+    /* ===== ANIMACIONES ===== */
+    @keyframes aparecer {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes deslizar {
+        from { transform: translateY(50px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* ===== CONTAINER QUERIES ===== */
+    /* Cambiamos estilos basados en el tamaño del contenedor y no del viewport */
+    @container principal (max-width: 768px) {
+        .cuadricula-proyectos {
+            /* Cambiamos a una sola columna cuando el contenedor es pequeño */
+            grid-template-columns: 1fr;
+        }
+        
+        .item-habilidad {
+            width: calc(50% - var(--espaciado-med));
+        }
+    }
+
+    @container principal (max-width: 480px) {
+        .item-habilidad {
+            width: 100%;
+        }
+        
+        .barra-navegacion {
+            flex-direction: column;
+            gap: var(--espaciado-peq);
+        }
+    }
+
+    /* ===== MEDIA QUERIES TRADICIONALES ===== */
+    /* Para tablet */
+    @media (max-width: 768px) {
+        .enlaces-nav {
+            gap: var(--espaciado-peq);
+        }
+    }
+
+    /* Para celular */
+    @media (max-width: 480px) {
+        .enlaces-nav {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
