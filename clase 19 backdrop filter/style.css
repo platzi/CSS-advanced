@@ -1,0 +1,18 @@
+body {
+    background: url("https://images.pexels.com/photos/547114/pexels-photo-547114.jpeg") center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    width: 300px;
+    padding: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+    border-radius: 15px;
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px) grayscale(50%);
+}
