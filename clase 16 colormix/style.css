@@ -1,0 +1,11 @@
+.caja {
+    background-color: darkblue;
+    height: 200px;
+    width: 200px;
+    margin: auto;
+    transition: background-color 1s ease-in-out;
+}
+
+.caja:hover {
+    background-color: color-mix(in srgb, darkblue 50%, red 50%);
+}
