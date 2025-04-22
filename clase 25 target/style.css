@@ -1,0 +1,11 @@
+.seccion {
+    display: none; /* Usaremos esta propiedad para que siempre esté oculto salvo que lo cambiemos */
+    padding: 20px;
+    background: lightblue;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.seccion:target {
+    display: block;
+}
