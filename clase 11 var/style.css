@@ -1,0 +1,20 @@
+:root {
+    --color-principal: rgb(78, 78, 150);
+    --color-secundario: rgb(37, 90, 37);
+    --tamano-grande: 2rem;
+    --tamano-pequeno: 1rem;
+    --fuente-titulo: 'Arial', sans-serif;
+    --fuente-parrafo: 'Georgia', serif;
+}
+
+h1 {
+    color: var(--color-principal);
+    font-size: var(--tamano-grande);
+    font-family: var(--fuente-titulo);
+}
+
+p {
+    color: var(--color-secundario);
+    font-size: var(--tamano-pequeno);
+    font-family: var(--fuente-parrafo);
+}
