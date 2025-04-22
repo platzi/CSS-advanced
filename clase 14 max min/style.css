@@ -1,0 +1,12 @@
+.caja {
+    width: min(500px, 50%);
+    height: 500px;
+    background-color: blue;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: auto;
+}
+
+.fuente {
+    font-size: max(20px, 3vw);
+}
