@@ -1,0 +1,32 @@
+.menu {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-btn {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-list {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background: white;
+    padding: 10px;
+    list-style: none;
+    border: 1px solid #ccc;
+    opacity: 0; /* Usamos opacidad para ocultar el elemento al comienzo */
+    transform: scaleY(0); /* Usamos scaleY para poder comprimir en el eje vertical al comienzo */
+    transform-origin: top;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.menu:hover .menu-list,
+.menu:focus-within .menu-list {
+    opacity: 1;
+    transform: scaleY(1);
+}
