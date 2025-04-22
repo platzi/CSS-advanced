@@ -1,0 +1,8 @@
+.caja {
+    width: clamp(200px, 50%, 500px);
+    height: 500px;
+    background-color: blue;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: auto;
+}
