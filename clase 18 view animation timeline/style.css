@@ -1,0 +1,25 @@
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.espaciador {
+    height: 100vh;
+}
+
+.texto {
+    font-size: 2rem;
+    text-align: center;
+    opacity: 0;
+
+    /* CREACIÓN DE LA LÍNEA TEMPORAL (timeline) */
+    view-timeline-name: --aparecer-timeline;
+    view-timeline-axis: block;
+
+    /* ASOCIAR LA ANIMACIÓN CON EL TIMELINE */
+    animation-timeline: --aparecer-timeline;
+    animation-name: aparecer;
+
+    animation-range: entry 10% cover 30%;
+    animation-fill-mode: both;
+}
