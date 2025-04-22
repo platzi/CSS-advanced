@@ -1,0 +1,11 @@
+.container {
+    width: calc(100% - 25vw);
+    background-color: blueviolet;
+    color: aliceblue;
+    padding: 30px;
+    text-align: center;
+}
+
+.fuente {
+    font-size: calc(1rem + 4vw);
+}
