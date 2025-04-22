@@ -1,0 +1,4 @@
+p:not(.distinto) {
+    color: blueviolet;
+    font-style: italic;
+}
