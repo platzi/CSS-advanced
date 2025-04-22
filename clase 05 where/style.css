@@ -1,0 +1,11 @@
+section:is(.destacado) {
+    color: blue;
+}
+
+section:where(.destacado) {
+    color: green;
+}
+
+.destacado {
+    color: red;
+}
