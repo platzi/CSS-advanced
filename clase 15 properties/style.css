@@ -1,0 +1,14 @@
+@property --color-fondo {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: white;
+}
+
+body {
+    background-color: var(--color-fondo);
+    transition: --color-fondo 2s ease-in-out;
+}
+
+body:hover {
+    --color-fondo: yellow;
+}
