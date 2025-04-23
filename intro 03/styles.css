@@ -1,0 +1,101 @@
+/* Estilos generales */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  position: relative; /* Necesario para posicionar correctamente los submenús */
+}
+
+.menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.menu a:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Cambio de color si un ítem está activo */
+.menu a.active {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Resaltado del nav si contiene un ítem activo */
+.navbar:has(.menu .active) {
+  background-color: #e3f2fd;
+}
+
+/* Submenú (menú contextual) */
+.submenu {
+  display: none; /* Oculto por defecto */
+  position: absolute;
+  top: 100%; /* Debajo del ítem principal */
+  left: 0; /* Alineado con el borde izquierdo del ítem principal */
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  z-index: 10;
+  min-width: 150px; /* Ancho mínimo para que el submenú sea legible */
+}
+
+.submenu li {
+  margin: 0;
+}
+
+.submenu a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.submenu a:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Mostrar submenú cuando el ítem principal tiene la clase 'open' */
+.has-submenu.open > .submenu {
+  display: block;
+}
+
+/* Uso de :is() y :not() */
+.menu :is(a, .submenu a):not(.active) {
+  background-color: transparent;
+}
+
+.menu :is(a, .submenu a):not(.active):hover {
+  background-color: #007bff;
+  color: white;
+}
