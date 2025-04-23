@@ -1,0 +1,113 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Fondo con líneas de código */
+  .background-code {
+    position: absolute;
+    top: 0;
+    width: 50%; /* Dividimos el ancho en dos partes */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    z-index: -1;
+    animation: fadeInBackground 5s ease-in-out infinite;
+  }
+  
+  .background-code.left {
+    left: 0%;
+    align-items: flex-start; /* Alineación a la izquierda */
+  }
+  
+  .background-code.right {
+    right: 1%;
+    align-items: flex-end; /* Alineación a la derecha */
+  }
+  
+  .background-code span {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6); /* Aumentamos la visibilidad */
+    margin-left: 2rem;
+    white-space: nowrap;
+    animation: moveCode 10s linear infinite;
+  }
+  
+  /* Animación del fondo */
+  @keyframes moveCode {
+    0% {
+      transform: translateY(100%);
+      opacity: 0.3;
+    }
+    10% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(-100%);
+      opacity: 0.3;
+    }
+  }
+  
+  @keyframes fadeInBackground {
+    0%, 100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+  
+  /* Texto principal con animación tipográfica */
+  .text-container {
+    text-align: center;
+    z-index: 1;
+  }
+  
+  .animated-text {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #ff6f61;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    animation: textAnimation 5s ease-in-out infinite;
+  }
+  
+  /* Animación del texto */
+  @keyframes textAnimation {
+    0%, 100% {
+      transform: scale(1);
+      color: #ff6f61;
+    }
+    25% {
+      transform: scale(1.1);
+      color: #61dafb;
+    }
+    50% {
+      transform: scale(1);
+      color: #ff6f61;
+    }
+    75% {
+      transform: scale(0.9);
+      color: #ffffff;
+    }
+  }
